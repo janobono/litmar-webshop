@@ -11,13 +11,13 @@ const Nav: React.FC = () => {
             <div className="flex-1"></div>
             <div className="flex flex-wrap">
                 {
-                    authState.token ? (
+                    authState.user ? (
                         <div
                             className="flex flex-wrap p-1 gap-1 items-center text-sm hover:bg-blue-200 cursor-pointer"
                             onClick={() => authState.signOut()}
                         >
                             <LogOut/>
-                            <div>Odhlásiť</div>
+                            <p className="text-xs">Odhlásiť</p>
                         </div>
                     ) : (
                         <NavLink
@@ -25,7 +25,7 @@ const Nav: React.FC = () => {
                             to="/sign-in"
                         >
                             <LogIn/>
-                            <div>Prihlásiť</div>
+                            <p className="text-xs">Prihlásiť</p>
                         </NavLink>
                     )
                 }

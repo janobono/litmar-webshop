@@ -9,13 +9,7 @@ public class IndexController {
 
     @RequestMapping(
             method = {RequestMethod.OPTIONS, RequestMethod.GET},
-            path = {
-                    "/",
-                    "/cookies-info",
-                    "/gdpr-info",
-                    "/sign-in",
-                    "/sign-up"
-            }
+            path = {"{_:^(?!index\\.html|api).*$}"}
     )
     public String index() {
         return "forward:/index.html";

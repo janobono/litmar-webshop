@@ -5,6 +5,5 @@ export interface PaginatedResponse<T> {
 }
 
 export const queries = {
-    authorities: (params: Params = {}) => ['/authorities', params],
-    captcha: (params: Params = {}) => ['/captcha', params],
+    authorities: (params: Params = {}) => ['/authorities', params]
 };

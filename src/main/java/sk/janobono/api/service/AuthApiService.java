@@ -317,7 +317,7 @@ public class AuthApiService {
 
     private String getTokenUrl(String webUrl, String token) {
         try {
-            return webUrl + "/confirm?token=" + URLEncoder.encode(token, StandardCharsets.UTF_8.toString());
+            return webUrl + "/confirm/" + URLEncoder.encode(token, StandardCharsets.UTF_8.toString());
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

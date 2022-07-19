@@ -9,3 +9,49 @@
         @apply bg-gray-100
     }
 }
+
+@layer base {
+    a {
+        @apply text-gray-500 font-semibold
+    }
+
+    a:hover {
+        @apply text-gray-800
+    }
+
+    h1 {
+        @apply text-gray-900 text-2xl font-extrabold text-center
+    }
+
+    h2 {
+        @apply text-gray-900 text-xl font-extrabold text-center
+    }
+
+    h3 {
+        @apply text-gray-900 text-lg font-extrabold text-center
+    }
+
+    h4 {
+        @apply text-gray-900 text-base font-bold uppercase text-center
+    }
+
+    p {
+        @apply text-gray-900 text-base font-normal
+    }
+
+    ul {
+        @apply list-disc
+    }
+
+    label {
+        @apply block text-gray-900 text-xs font-medium
+    }
+
+    input {
+        @apply block text-gray-900 text-sm bg-gray-50 border border-gray-300 p-1.5
+    }
+
+    input:focus {
+        @apply outline-none ring-blue-500 border-blue-500 z-10
+    }
+}

@@ -3,15 +3,15 @@ import Footer from './footer';
 import Header from './header';
 import Nav from './nav';
 
-const ContentLayout: React.FC<any> = ({children}) => (
+const Layout: React.FC<any> = ({children}) => (
     <>
         <Header/>
         <Nav/>
-        <main className="flex items-center justify-center">
+        <main className="flex items-center justify-center min-h-[480px]">
             {children}
         </main>
         <Footer/>
     </>
 );
 
-export default ContentLayout;
+export default Layout;

@@ -1,11 +1,12 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useAuthState } from '../../context/auth-state-context-provider';
 import { useGlobalState } from '../../context/global-state-context-provider';
-import { Spinner } from '../ui/spinner';
+import { LWSpinner } from '../ui/lw-spinner';
 import { User } from 'react-feather';
 
 const Header: React.FC = () => {
+    const navigate = useNavigate();
     const globalState = useGlobalState();
     const authState = useAuthState();
 
@@ -21,18 +22,25 @@ const Header: React.FC = () => {
                     </div>
                     <div className="basis-2/5">
                         {globalState.companyInfo ?
-                            <NavLink className="block text-center text-lg" to="/"
+                            <NavLink
+                                className="block text-center text-2xl font-normal text-gray-900 hover:text-gray-900"
+                                to="/"
                             >{globalState.companyInfo.firm}
                             </NavLink>
                             :
-                            <Spinner/>
+                            <LWSpinner/>
                         }
                     </div>
                     <div className="flex flex-1 flex-row items-end justify-end">
                         {
                             authState.user ?
-                                <div className="flex flex-1">
-
+                                <div className="flex flex-wrap">
+                                    <div className="flex-col">
+                                        <div className="flex flex-wrap">
+                                            <User size="16" className="pr-1"/>
+                                            <p className="text-xs">{`${authState.user.firstName} ${authState.user.midName ? authState.user.midName : ''} ${authState.user.lastName}`}</p>
+                                        </div>
+                                    </div>
                                 </div>
                                 :
                                 <div className="flex flex-wrap text-xs">
@@ -42,13 +50,9 @@ const Header: React.FC = () => {
                                             <div>Neprihlásený používateľ</div>
                                         </div>
                                         <div className="flex flex-wrap">
-                                            <NavLink to="/sign-in"
-                                                     className="text-gray-500 hover:text-gray-800 font-semibold pr-1"
-                                            >Prihláste sa</NavLink>
+                                            <NavLink to="/sign-in" className="pr-1">Prihláste sa</NavLink>
                                             <div>alebo sa</div>
-                                            <NavLink to="/sign-up"
-                                                     className="text-gray-500 hover:text-gray-800 font-semibold pl-1"
-                                            >Zaregistrujte</NavLink>
+                                            <NavLink to="/sign-up" className="pl-1">Zaregistrujte</NavLink>
                                             <div>.</div>
                                         </div>
                                     </div>
@@ -58,7 +62,7 @@ const Header: React.FC = () => {
                 </div>
                 :
                 <div className="flex flex-1 justify-center items-center">
-                    <Spinner/>
+                    <LWSpinner/>
                 </div>
             }
         </header>

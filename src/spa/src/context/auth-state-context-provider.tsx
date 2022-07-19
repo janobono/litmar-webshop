@@ -40,30 +40,29 @@ interface JWTPayload {
     authorities: string[];
 }
 
-export interface ConfirmData {
+interface ConfirmData {
     token: string
 }
 
-export interface ChangeEmailData {
+interface ChangeEmailData {
     email: string,
     password: string,
     captchaText: string,
     captchaToken: string
 }
 
-export interface ResetPasswordData {
+interface ResetPasswordData {
     email: string,
-    password: string,
     captchaText: string,
     captchaToken: string
 }
 
-export interface SignInData {
+interface SignInData {
     username: string,
     password: string
 }
 
-export interface SignUpData {
+interface SignUpData {
     username: string,
     password: string,
     titleBefore: string | null,
@@ -133,7 +132,7 @@ const AuthStateContextProvider: React.FC<any> = ({children}) => {
     }
 
     const resetPassword = async (resetPasswordData: ResetPasswordData) => {
-        await client.post<AuthResponse>(paths.resetPassword, resetPassword);
+        await client.post(paths.resetPassword, resetPasswordData);
     }
 
     const signIn = async (signInData: SignInData) => {
